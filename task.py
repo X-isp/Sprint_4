@@ -15,9 +15,22 @@ if LOCAL:
 
 
 def solution(node, idx):
-    # Напишите код функции здесь.
-    # ヽ(´▽`)/
-    pass
+    previous_x = node
+    current_x = previous_x.next_item
+    next_x = current_x.next_item
+
+    i = 0
+
+    while i != (idx - 1):
+        previous_x = current_x
+        current_x = next_x
+        next_x = current_x.next_item
+
+        i += 1
+
+    previous_x.next_item = next_x
+
+    return node
 
 
 # Тестирующая функция для проверки решения.
@@ -40,74 +53,4 @@ def test():
 
 
 if __name__ == '__main__':
-    # test()
-
-    node5 = Node("Задача 6:", None)
-    node4 = Node("Задача 5:", node5)
-    node3 = Node("Задача 4:", node4)
-    node2 = Node("Задача 3:", node3)
-    node1 = Node("Задача 2:", node2)
-    node0 = Node("Задача 1:", node1)
-
-    
-    # print(((node0.next_item).next_item).value)
-
-    # print(node0.value)
-    # print((node0.next_item).value)
-    # print(((node0.next_item).next_item).value)
-    # print((((node0.next_item).next_item).next_item).value)
-    # print(((((node0.next_item).next_item).next_item).next_item).value)
-    # print((((((node0.next_item).next_item).next_item).next_item).next_item).value)
-    # print()
-
-    previous_x = node0
-    current_x = previous_x.next_item
-    next_x = current_x.next_item
-
-    print(previous_x.value)
-    print(current_x.value)
-    print(next_x.value)
-    print()
-
-    i = 0
-
-    while i != 1:
-        previous_x = current_x
-        current_x = next_x
-        next_x = current_x.next_item
-        
-        print(i)
-        print(previous_x.value)
-        print(current_x.value)
-        print(next_x.value)
-        print()
-
-        i += 1
-
-    previous_x.next_item = next_x
-
-    print(previous_x.value)
-    print((previous_x.next_item).value)
-
-    # # step 1
-    # previous_x = current_x
-    # current_x = next_x
-    # next_x = current_x.next_item
-
-    # print(previous_x.value)
-    # print(current_x.value)
-    # print(next_x.value)
-    # print()
-    
-    # # step 2
-    # previous_x = current_x
-    # current_x = next_x
-    # next_x = current_x.next_item
-
-    # print(previous_x.value)
-    # print(current_x.value)
-    # print(next_x.value)
-    # print()
-
-
-
+    test()
